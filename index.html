@@ -4,6 +4,16 @@
 <title>Semantic Publishing with Nanopublications</title>
 <link rel="stylesheet" href="css/reveal.css">
 <link rel="stylesheet" href="css/theme/whitex.css">
+<style>
+.nanopub { text-align: left; margin: 20px; font-family: monaco,monospace; font-size: 10pt; color: #444; margin: 0 0 30px 0; padding: 0px 10px 10px 10px; border-radius: 10px; border: solid; border-width: 1px; }
+.nanopub a { color: #000; text-decoration: none; }
+.nanopub a:hover { color: #666; }
+.nanopub-prefixes { margin-top: 10px; }
+.nanopub-head { background: #e8e8e8; padding: 10px; margin-top: 10px; border-radius: 10px; }
+.nanopub-assertion { background: #99ccff; padding: 10px; margin-top: 10px; border-radius: 10px; }
+.nanopub-provenance { background: #f3a08c; padding: 10px; margin-top: 10px; border-radius: 10px; }
+.nanopub-pubinfo { background: #ffff66; padding: 10px; margin-top: 10px; border-radius: 10px; }
+</style>
 </head>
 
 <body>
@@ -334,28 +344,112 @@ VU University Amsterdam
 <p><small><a href="https://tinyurl.com/fair-nanopub">https://tinyurl.com/fair-nanopub</a></small></p>
 </section>
 
-<section data-transition="none">
-<h3>FAIR Principles as Nanopublications</h3>
-<img class="plain stretch" src="img/fair-nanopub-x.svg"/>
-<p><small><a href="https://tinyurl.com/fair-nanopub">https://tinyurl.com/fair-nanopub</a></small></p>
+<section data-transition="slide-in">
+<h3>Workflow Step as a Nanopublication</h3>
+<div class="nanopub">
+<div class="nanopub-prefixes">
+@prefix this: &lt;<a href="http://purl.org/np/RAiiIYkYA_nVHi1uj1UNLsIx1PRXrvCdzMuOnzppmJu0s">http://purl.org/np/RAiiIYkYA_nVHi1uj1UNLsIx1PRXrvCdzMuOnzppmJu0s</a>&gt; .<br/>
+...<br/>
+</div>
+<div class="nanopub-assertion">
+<span class="nanopub-context-switch"><a href="http://purl.org/np/RAiiIYkYA_nVHi1uj1UNLsIx1PRXrvCdzMuOnzppmJu0s#assertion">sub:assertion</a> {<br/></span>
+&nbsp;&nbsp;<a href="http://purl.org/np/RAiiIYkYA_nVHi1uj1UNLsIx1PRXrvCdzMuOnzppmJu0s#cleanText">sub:cleanText</a> <a href="http://purl.org/dc/terms/description">dct:description</a> """<br/>import string<br/>import re<br/>from cleantext import clean<br/><br/>def cleanText(text): <br/>&nbsp; &nbsp;s= clean(text, fix_unicode=True, to_ascii=True,&nbsp; lower=False, no_line_breaks=True, lang=\&quot;en\&quot; ) <br/>&nbsp; &nbsp;s= re.sub(r'\\|+', '|', s)<br/>&nbsp; &nbsp;s= s.replace('|', '\\r\\n')<br/>&nbsp; &nbsp;return s<br/>""" ;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://purl.org/dc/terms/language">dct:language</a> <a href="http://purl.org/plex#ComputerLanguage_Python_3.7">plex:ComputerLanguage_Python_3.7</a> ;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://purl.org/net/p-plan#hasInputVar">p-plan:hasInputVar</a> <a href="http://purl.org/np/RAiiIYkYA_nVHi1uj1UNLsIx1PRXrvCdzMuOnzppmJu0s#input_text">sub:input_text</a> ;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://purl.org/net/p-plan#hasOutputVar">p-plan:hasOutputVar</a> <a href="http://purl.org/np/RAiiIYkYA_nVHi1uj1UNLsIx1PRXrvCdzMuOnzppmJu0s#output">sub:output</a> ;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">a</a> <a href="http://dkm.fbk.eu/index.php/BPMN2_Ontology#ScriptTask">bpmn:ScriptTask</a> , <a href="http://edamontology.org/operation_2409">edam:operation_2409</a> , <a href="http://purl.org/net/p-plan#Step">p-plan:Step</a> ;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a> "cleanText" . <br/>
+&nbsp;&nbsp;<a href="http://purl.org/np/RAiiIYkYA_nVHi1uj1UNLsIx1PRXrvCdzMuOnzppmJu0s#input_text">sub:input_text</a> <a href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a> "text" . <br/>
+<span class="nanopub-context-switch">}<br/></span>
+</div>
+<div class="nanopub-provenance">
+<span class="nanopub-context-switch"><a href="http://purl.org/np/RAiiIYkYA_nVHi1uj1UNLsIx1PRXrvCdzMuOnzppmJu0s#provenance">sub:provenance</a> {<br/></span>
+&nbsp;&nbsp;<a href="http://purl.org/np/RAiiIYkYA_nVHi1uj1UNLsIx1PRXrvCdzMuOnzppmJu0s#assertion">sub:assertion</a> <a href="http://www.w3.org/ns/prov#wasAttributedTo">prov:wasAttributedTo</a> <a href="https://orcid.org/0000-0001-7769-4272">orcid:0000-0001-7769-4272</a> , <a href="https://orcid.org/0000-0002-1267-0234">orcid:0000-0002-1267-0234</a> . <br/>
+<span class="nanopub-context-switch">}<br/></span>
+</div>
+<div class="nanopub-pubinfo">
+<span class="nanopub-context-switch"><a href="http://purl.org/np/RAiiIYkYA_nVHi1uj1UNLsIx1PRXrvCdzMuOnzppmJu0s#pubinfo">sub:pubinfo</a> {<br/></span>
+&nbsp;&nbsp;<a href="http://purl.org/np/RAiiIYkYA_nVHi1uj1UNLsIx1PRXrvCdzMuOnzppmJu0s">this:</a> <a href="http://purl.org/dc/terms/created">dct:created</a> "2020-03-11T09:06:10.873+01:00"^^<a href="http://www.w3.org/2001/XMLSchema#dateTime">xsd:dateTime</a> ;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://purl.org/dc/terms/creator">dct:creator</a> <a href="https://orcid.org/0000-0002-1267-0234">orcid:0000-0002-1267-0234</a> . <br/>
+<span class="nanopub-context-switch">}<br/></span>
+</div>
+</div>
+</section>
+
+<section data-transition="slide-in">
+<h3>Manual Workflow Step: Wet-lab Protocol</h3>
+<div class="nanopub">
+<div class="nanopub-prefixes">
+@prefix this: &lt;<a href="http://purl.org/np/RAyopeTSkGDX_xbB3P6YqlDZf1Ue5P_-EoprjwLG3tZoo">http://purl.org/np/RAyopeTSkGDX_xbB3P6YqlDZf1Ue5P_-EoprjwLG3tZoo</a>&gt; .<br/>
+...<br/>
+</div>
+<div class="nanopub-assertion">
+<span class="nanopub-context-switch"><a href="http://purl.org/np/RAyopeTSkGDX_xbB3P6YqlDZf1Ue5P_-EoprjwLG3tZoo#assertion">sub:assertion</a> {<br/></span>
+&nbsp;&nbsp;<a href="http://purl.org/np/RAyopeTSkGDX_xbB3P6YqlDZf1Ue5P_-EoprjwLG3tZoo#inoculate-agar-plates">sub:inoculate-agar-plates</a> <a href="http://purl.org/dc/terms/description">dct:description</a> "Using either a pipette, or, if the specimen is really viscous, a transfer pipette, inoculate both a RL+C and RL-C agar plate with 50ul of the specimen." ;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://purl.org/dc/terms/language">dct:language</a> <a href="http://purl.org/plex#LinguisticSystem_xsd_language_English">plex:LinguisticSystem_xsd_language_English</a> ;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://purl.org/net/p-plan#hasInputVar">p-plan:hasInputVar</a> <a href="http://purl.org/np/RAyopeTSkGDX_xbB3P6YqlDZf1Ue5P_-EoprjwLG3tZoo#input_specimen">sub:input_specimen</a> ;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://purl.org/net/p-plan#hasOutputVar">p-plan:hasOutputVar</a> <a href="http://purl.org/np/RAyopeTSkGDX_xbB3P6YqlDZf1Ue5P_-EoprjwLG3tZoo#output_agarplate1">sub:output_agarplate1</a> , <a href="http://purl.org/np/RAyopeTSkGDX_xbB3P6YqlDZf1Ue5P_-EoprjwLG3tZoo#output_agarplate2">sub:output_agarplate2</a> ;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">a</a> <a href="http://dkm.fbk.eu/index.php/BPMN2_Ontology#ManualTask">bpmn:ManualTask</a> , <a href="http://purl.org/net/p-plan#Step">p-plan:Step</a> . <br/>
+&nbsp;&nbsp;<a href="http://purl.org/np/RAyopeTSkGDX_xbB3P6YqlDZf1Ue5P_-EoprjwLG3tZoo#input_specimen">sub:input_specimen</a> <a href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a> "specimen from body fluid sample" . <br/>
+&nbsp;&nbsp;<a href="http://purl.org/np/RAyopeTSkGDX_xbB3P6YqlDZf1Ue5P_-EoprjwLG3tZoo#output_agarplate1">sub:output_agarplate1</a> <a href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a> "inoculated RL+C agar plate" . <br/>
+&nbsp;&nbsp;<a href="http://purl.org/np/RAyopeTSkGDX_xbB3P6YqlDZf1Ue5P_-EoprjwLG3tZoo#output_agarplate2">sub:output_agarplate2</a> <a href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a> "inoculated RL-C agar plate" . <br/>
+<span class="nanopub-context-switch">}<br/></span>
+</div>
+<div class="nanopub-provenance">
+<span class="nanopub-context-switch"><a href="http://purl.org/np/RAyopeTSkGDX_xbB3P6YqlDZf1Ue5P_-EoprjwLG3tZoo#provenance">sub:provenance</a> {<br/></span>
+&nbsp;&nbsp;<a href="http://purl.org/np/RAyopeTSkGDX_xbB3P6YqlDZf1Ue5P_-EoprjwLG3tZoo#assertion">sub:assertion</a> <a href="http://www.w3.org/ns/prov#hadPrimarySource">prov:hadPrimarySource</a> &lt;<a href="https://www.protocols.io/view/standard-operating-procedure-for-culturing-bordete-kq9cvz6">https://www.protocols.io/view/standard-operating-procedure-for-culturing-bordete-kq9cvz6</a>&gt; . <br/>
+<span class="nanopub-context-switch">}<br/></span>
+</div>
+<div class="nanopub-pubinfo">
+<span class="nanopub-context-switch"><a href="http://purl.org/np/RAyopeTSkGDX_xbB3P6YqlDZf1Ue5P_-EoprjwLG3tZoo#pubinfo">sub:pubinfo</a> {<br/></span>
+&nbsp;&nbsp;<a href="http://purl.org/np/RAyopeTSkGDX_xbB3P6YqlDZf1Ue5P_-EoprjwLG3tZoo">this:</a> <a href="http://purl.org/dc/terms/created">dct:created</a> "2020-03-11T09:32:15.576+01:00"^^<a href="http://www.w3.org/2001/XMLSchema#dateTime">xsd:dateTime</a> ;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://purl.org/dc/terms/creator">dct:creator</a> <a href="https://orcid.org/0000-0002-1267-0234">orcid:0000-0002-1267-0234</a> . <br/>
+<span class="nanopub-context-switch">}<br/></span>
+</div>
+</div>
+</section>
+
+<section data-transition="slide-in">
+<h3>Manual Workflow Step: Cooking Recipe</h3>
+<div class="nanopub">
+<div class="nanopub-prefixes">
+@prefix this: &lt;<a href="http://purl.org/np/RAbHrVTCqt307dA3mVee0a3aCjNpragjOScgAEnm_h9Rg">http://purl.org/np/RAbHrVTCqt307dA3mVee0a3aCjNpragjOScgAEnm_h9Rg</a>&gt; .<br/>
+...<br/>
+</div>
+<div class="nanopub-assertion">
+<span class="nanopub-context-switch"><a href="http://purl.org/np/RAbHrVTCqt307dA3mVee0a3aCjNpragjOScgAEnm_h9Rg#assertion">sub:assertion</a> {<br/></span>
+&nbsp;&nbsp;<a href="http://purl.org/np/RAbHrVTCqt307dA3mVee0a3aCjNpragjOScgAEnm_h9Rg#input_apple">sub:input_apple</a> <a href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a> "1 apple, cored and chopped" . <br/>
+&nbsp;&nbsp;<a href="http://purl.org/np/RAbHrVTCqt307dA3mVee0a3aCjNpragjOScgAEnm_h9Rg#input_butter">sub:input_butter</a> <a href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a> "1 tablespoon butter" . <br/>
+&nbsp;&nbsp;<a href="http://purl.org/np/RAbHrVTCqt307dA3mVee0a3aCjNpragjOScgAEnm_h9Rg#input_onion">sub:input_onion</a> <a href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a> "1 onion, chopped" . <br/>
+&nbsp;&nbsp;<a href="http://purl.org/np/RAbHrVTCqt307dA3mVee0a3aCjNpragjOScgAEnm_h9Rg#make-curry-sauce">sub:make-curry-sauce</a> <a href="http://purl.org/dc/terms/description">dct:description</a> "Melt the butter in a skillet over medium heat. Add the apple and onion to the melted butter, season with the curry powder, and cook and stir until the apple and onion are tender, 7 to 10 minutes." ;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://purl.org/dc/terms/language">dct:language</a> <a href="http://purl.org/plex#LinguisticSystem_xsd_language_English">plex:LinguisticSystem_xsd_language_English</a> ;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://purl.org/net/p-plan#hasInputVar">p-plan:hasInputVar</a> <a href="http://purl.org/np/RAbHrVTCqt307dA3mVee0a3aCjNpragjOScgAEnm_h9Rg#input_apple">sub:input_apple</a> , <a href="http://purl.org/np/RAbHrVTCqt307dA3mVee0a3aCjNpragjOScgAEnm_h9Rg#input_butter">sub:input_butter</a> , <a href="http://purl.org/np/RAbHrVTCqt307dA3mVee0a3aCjNpragjOScgAEnm_h9Rg#input_onion">sub:input_onion</a> ;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://purl.org/net/p-plan#hasOutputVar">p-plan:hasOutputVar</a> <a href="http://purl.org/np/RAbHrVTCqt307dA3mVee0a3aCjNpragjOScgAEnm_h9Rg#output_currysauce">sub:output_currysauce</a> ;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">a</a> <a href="http://dkm.fbk.eu/index.php/BPMN2_Ontology#ManualTask">bpmn:ManualTask</a> , <a href="http://purl.org/net/p-plan#Step">p-plan:Step</a> . <br/>
+<span class="nanopub-context-switch">}<br/></span>
+</div>
+<div class="nanopub-provenance">
+<span class="nanopub-context-switch"><a href="http://purl.org/np/RAbHrVTCqt307dA3mVee0a3aCjNpragjOScgAEnm_h9Rg#provenance">sub:provenance</a> {<br/></span>
+&nbsp;&nbsp;<a href="http://purl.org/np/RAbHrVTCqt307dA3mVee0a3aCjNpragjOScgAEnm_h9Rg#assertion">sub:assertion</a> <a href="http://www.w3.org/ns/prov#hadPrimarySource">prov:hadPrimarySource</a> &lt;<a href="https://www.allrecipes.com/recipe/216795/curried-chicken/">https://www.allrecipes.com/recipe/216795/curried-chicken/</a>&gt; . <br/>
+<span class="nanopub-context-switch">}<br/></span>
+</div>
+<div class="nanopub-pubinfo">
+<span class="nanopub-context-switch"><a href="http://purl.org/np/RAbHrVTCqt307dA3mVee0a3aCjNpragjOScgAEnm_h9Rg#pubinfo">sub:pubinfo</a> {<br/></span>
+&nbsp;&nbsp;<a href="http://purl.org/np/RAbHrVTCqt307dA3mVee0a3aCjNpragjOScgAEnm_h9Rg">this:</a> <a href="http://purl.org/dc/terms/created">dct:created</a> "2020-03-11T09:19:26.582+01:00"^^<a href="http://www.w3.org/2001/XMLSchema#dateTime">xsd:dateTime</a> ;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://purl.org/dc/terms/creator">dct:creator</a> <a href="https://orcid.org/0000-0002-1267-0234">orcid:0000-0002-1267-0234</a> . <br/>
+<span class="nanopub-context-switch">}<br/></span>
+</div>
+</div>
 </section>
 
 <section>
-<h3><span class="cem">Querying the Nanopublication Network</span></h3>
-<img class="plain stretch" src="img/ldf.svg"/>
-<p><small><a href="http://ldf.nanopubs.lod.labs.vu.nl/np">http://ldf.nanopubs.lod.labs.vu.nl/np</a></small></p>
-</section>
-
-<section>
-<h3><span class="cem">A Look into the Future...</span></h3>
-<img class="plain stretch" src="img/askscience.svg"/>
-</section>
-
-<section>
-<img class="plain stretch" src="img/final-nanopub.svg"/>
-<small>
-<p>These slides: <a href="https://tinyurl.com/ifi-sempub">https://tinyurl.com/ifi-sempub</a></p>
-</small>
+<h3><span class="cem">Thank you for Your Attention!</span></h3>
+<br>
+<p>These slides:<br>
+<a href="https://tinyurl.com/nanopubs4workflows">https://tinyurl.com/nanopubs4workflows</a></p>
+<p>
+Further links:<br>
+<a href="http://purl.org/nanopub/links">http://purl.org/nanopub/links</a></p>
 </section>
 
 </div>
